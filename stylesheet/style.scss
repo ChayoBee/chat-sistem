@@ -1,0 +1,160 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+$borderline: solid 2px #bec1bb;
+
+@mixin flexelements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin font {
+    font-family: roboto, sans-serif;
+    font-size: 20px;
+}
+
+@mixin image ($widthsize) {
+        width: $widthsize;
+        aspect-ratio: 1;
+        background-color: black;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &> img {
+            width: 100%;
+      }
+}
+
+@mixin icon {
+    font-size: 20px;
+    padding-top: 5%;
+    color: #828485;
+    gap: 15px;
+}
+
+li {
+    list-style: none;
+}
+
+.body-all {
+    display: flex;
+    background-color: #cdc3e6;
+    width: 100%;
+    .menu {
+        height: 100vh;
+        width: 400px;
+        background-color: #d4dcff;
+        border-right: $borderline;
+        display: flex;
+        flex-direction: column;
+        .box-head {
+            border-bottom: $borderline;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            gap: 50px;
+            .user {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .avatar {
+                    @include image(65px);
+                    margin-right: 15px;
+                }
+                .status-user {
+                    h2 {
+                        @include font;
+                        width: 60px;
+                    }
+                    p {
+                        @include flexelements;
+                        font-family: roboto, sans-serif;
+                    }
+                }
+            }
+            .chat-icon {
+                @include flexelements;
+                @include icon;
+            }
+        }
+        .new-chat {
+            @include flexelements;
+            padding-top: 20px;
+        }
+        .box-body {
+            border-top: $borderline;
+            height: 100%;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            .chat-list {
+                :hover {
+                    background-color: #9873f3;
+                }
+                .name-chat {
+                    @include font;
+                }
+                .chat {
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 15px;
+                    padding: 13px;
+                    cursor: pointer;
+                    .chat-image {
+                        @include image (65px);
+                    }
+                    p, small {                
+                        flex-direction: column;
+                    }
+                }
+                .message {
+                    font-family: roboto, sans-serif;
+                    padding-top: 7px;
+                    align-items: center;
+                }
+            }
+    
+        }
+    }
+    
+    .bandeja {
+        @include flexelements;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        .logo {
+            width: 500px;
+            height: 450px;
+        }
+        p {
+            @include flexelements;
+            font-family: roboto, sans-serif;
+            font-size: 30px;
+        }
+        small {
+            @include flexelements;
+            @include font;
+        }
+    }
+    
+    .boton {
+        height: 50px;
+        width: 150px;
+        font-family: roboto, sans-serif;
+        font-size: 17px;
+        background-color: #9873f3;
+        cursor: pointer;
+        border: none;
+    }
+}
+
+/* Personalizar el scroll, linkearlo a github*/
